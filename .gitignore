@@ -1,0 +1,4 @@
+py_venv 
+.vscode
+#for hide Keys
+.env 
