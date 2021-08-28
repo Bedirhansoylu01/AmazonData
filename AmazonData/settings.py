@@ -6,7 +6,7 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-import dotenv
+from dotenv import load_dotenv
 from pathlib import Path
 
 BOT_NAME = 'AmazonData'
@@ -17,7 +17,7 @@ NEWSPIDER_MODULE = 'AmazonData.spiders'
 BASE_DIR = Path(__file__).resolve().parent.parent
 env_path = Path(BASE_DIR)/'.env'
 
-dotenv.load_dotenv("/home/telos/Coder/Flexboard/AmazonData/.env")
+load_dotenv("/home/telos/Coder/Flexboard/AmazonData/.env")
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'AmazonData (+http://www.yourdomain.com)'
 

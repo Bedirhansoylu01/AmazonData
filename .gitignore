@@ -2,3 +2,5 @@ py_venv
 .vscode
 #for hide Keys
 .env 
+Scrapy.db
+test.csv
