@@ -27,7 +27,7 @@ class AmazondataPipeline:
         self.closeDB()
 
     def createAmazonTable(self, item):
-        category=item["category"]
+        category = item["category"]
         self.cur.execute(f"""CREATE TABLE IF NOT EXISTS  '{category}'( id INTEGER PRIMARY KEY NOT NULL, 
             asin TEXT,
             Title TEXT,
@@ -39,11 +39,12 @@ class AmazondataPipeline:
             SellerRank TEXT
             )""")
 
-    def storeInDb(self,item):
-        category=item["category"]
+    def storeInDb(self, item):
+        category = item["category"]
         self.cur.execute(f"""INSERT INTO '{category}'(
             asin,Title,Rating,NumberOfReviews,MainImage,Price,Description,SellerRank) 
-            VALUES( :asin,:Title,:Rating , :NumberOfReviews ,:MainImage ,:Price ,:Description,:SellerRank)""", item)
+            VALUES( ?,?,?,?,?,?,?,?)""",
+                         (item['asin'], item['Title'], item['Rating'], item['NumberOfReviews'], item['MainImage'], item['Price'], item['Description'], item['SellerRank']))
 
         print(f"""   
         ------------------------------------------------------
